@@ -636,7 +636,7 @@ button{
 }
 
 
-@media(max-width:900px){
+@media(max-width:990px){
     .infoBar{
         display: none;
     }
