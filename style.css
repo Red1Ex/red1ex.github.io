@@ -772,7 +772,7 @@ button{
     
 }
 
-@media(max-width:460px){
+@media(max-width:440px){
     .burgerMenu{
         margin-top: 15px;
         margin-left: 138.68px;
