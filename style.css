@@ -25,14 +25,16 @@ button{
     width: 100%;
     height: 40px;
     background-color: #231815;
+    display: flex;
+    justify-content: end;
 }
 
 .links{
     width: 440px;
     height: 16px;
     display: flex;
-    margin-left: 1220px;
     justify-content: space-between;
+    margin-right: min(260px, calc(100vw - 440px));
 }
 
 .links a{
@@ -49,6 +51,8 @@ button{
     height: 80px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    /* padding: 0 20px; */
 }
 
 .logoImg{
@@ -59,28 +63,34 @@ button{
 }
 
 .menu{
-    width: 479px;
+    width: 100%;
+    max-width: 479px;
+    gap: 20px;
     height: 16px;
     display: flex;
     justify-content: space-between;
     margin-top: 31px;
-    margin-left: 242.5px;
+    margin-right: 132.5px;
+    margin-left: min(242.5px, calc((100vw - 479px) / 2));
+    
 }
 
 .menu a{
     color: #231815;
     font-weight: 400;
     font-size: 16px;
+    white-space: nowrap;
 }
 
 .search{
-    width: 170px;
+    min-width: 170px;
+    width: auto;
     height: 39px;
     border: #F5F5F5 1px solid;
     border-radius: 88.64px;
     position: relative;
     margin-top: 21px;
-    margin-left: 132.5px;
+    margin-left: auto;
 }
 
 .whiteButton{
@@ -95,9 +105,11 @@ button{
 
 .search input{
     width: 70%;
-    position: absolute;
-    left: 17px;
-    top: 7px;
+    flex-grow: 1;
+    min-width: 90px;
+    position: static;
+    margin-left: 17px;
+    margin-top: 7px;
     background: white;
     font-weight: 400;
     font-size: 16px;
@@ -288,13 +300,13 @@ button{
 }
 
 .cards{
-    width: 1400px;
-    height: 1180px;
+    max-width: 1400px;
+    width: auto;
+    min-height: 1180px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 40px;
-    margin-bottom: 60px;
+    margin: 40px auto 60px;
 }
 
 .resultCard{
@@ -512,42 +524,47 @@ button{
 
 @media(max-width:1600px){
 
-    .links{
-        margin-left: 980px;
-    }
-
     .logoImg{
         margin-left: 180px;
     }
 
     .menu{
-        margin-left: 163.5px;
+        margin-left: min(163.5px, calc((100vw - 479px) / 2));
+        margin-right: 132.5px;
     }
 
 
     .search{
         border: none;
+        position: relative;
+        min-width: 39px;
+        width: auto;
+        margin-left: auto;
     }
 
     .search button{
         border-radius: 100%;
+        z-index: 3;
     }
 
     .search input {
         width: 0;
         height: 39px;
+        position: absolute;
         background: transparent;
         transition: .4s cubic-bezier(0, 0.8, 0, 1);
         top: 0;
-        right: 10px;
+        right: 39px;
         left: auto;
         z-index: 2;
-        padding: 0 39px 0 15px;
+        padding: 0 15px;
+        opacity: 0;
     }
     
     .search input:focus {
-        width: 89%;
-        z-index: 1;
+        width: calc(100vw - 600px);
+        max-width: 100px;
+        opacity: 1;
         border-bottom: 1px solid #000000;
     }
 
@@ -587,8 +604,8 @@ button{
     }
 
     .cards{
-        width: 1240px;
-        height: 1062px;
+        max-width: 1240px;
+        min-height: 1062px;
     }
 
     .resultCard{
@@ -636,16 +653,14 @@ button{
 }
 
 @media(max-width: 1400px){
-    .links{
-        margin-left: 880px;
-    }
 
     .logoImg{
         margin-left: 130px;
     }
 
-    .search{
-        margin-left: 110px;
+    .menu{
+        margin-left: min(90px, calc((100vw - 479px) / 2));
+        margin-right: 110px;
     }
 
     .result{
@@ -658,20 +673,14 @@ button{
 }
 
 @media(max-width:1200px){
-    .links{
-        margin-left: 700px;
-    }
 
     .logoImg{
         margin-left: 44px;
     }
 
     .menu {
-        margin-left: 145px;
-    }
-
-    .search{
-        margin-left: 50px;
+        margin-left: min(30px, calc((100vw - 479px) / 2));
+        margin-right: 50px;
     }
 
     .result{
@@ -679,7 +688,7 @@ button{
     }
 
     .cards{
-        width: 1100px;
+        max-width: 1100px;
     }
 
     .resultCard{
@@ -709,6 +718,10 @@ button{
 @media(max-width:992px){
     .infoBar{
         display: none;
+    }
+
+    .header{
+        align-items: normal;
     }
 
     .search{
@@ -746,8 +759,8 @@ button{
 
 
     .cards{
-        width: 940px;
-        height: 1855px;
+        max-width: 940px;
+        min-height: 1855px;
         margin-bottom: 50px;
         justify-content: flex-start;
         gap: 20px;
@@ -862,8 +875,8 @@ button{
 
 
     .cards{
-        width: 680px;
-        height: 2410px;
+        max-width: 680px;
+        min-height: 2410px;
         margin-bottom: 50px;
         gap: 40px;
     }
@@ -1004,8 +1017,8 @@ button{
 
 
     .cards{
-        width: 485px;
-        height: 1020px;
+        max-width: 485px;
+        min-height: 1020px;
         margin-bottom: 40px;
         gap: 10px;
     }
@@ -1150,7 +1163,7 @@ button{
 
 @media(max-width:390px){
     .cards{
-        width: 320px;
-        height: 1370px;
+        max-width: 320px;
+        min-height: 1370px;
     }
 }
